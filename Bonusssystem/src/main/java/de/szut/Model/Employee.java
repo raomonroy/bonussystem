@@ -9,6 +9,15 @@ public class Employee {
     private int absenceDays;
     private boolean teamLeader;
 
+    public Employee(String name, int yearsInCompany, int performanceScore, int completedProjects, int absenceDays, boolean teamLeader) {
+        this.name = name;
+        this.yearsInCompany = yearsInCompany;
+        this.performanceScore = performanceScore;
+        this.completedProjects = completedProjects;
+        this.absenceDays = absenceDays;
+        this.teamLeader = teamLeader;
+    }
+
     public String getName() {
         return name;
     }

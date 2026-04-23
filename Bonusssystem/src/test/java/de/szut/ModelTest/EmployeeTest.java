@@ -7,14 +7,7 @@ public class EmployeeTest {
 
     @Test
     public void testEmployee() {
-        // Test the Employee class
-        Employee employee = new Employee();
-        employee.setName("John Doe");
-        employee.setYearsInCompany(5);
-        employee.setPerformanceScore(8);
-        employee.setCompletedProjects(10);
-        employee.setAbsenceDays(2);
-        employee.setTeamLeader(true);
+        Employee employee = new Employee("John Doe", 5, 8, 10, 2, true);
 
         assert(employee.getName().equals("John Doe"));
         assert(employee.getYearsInCompany() == 5);
