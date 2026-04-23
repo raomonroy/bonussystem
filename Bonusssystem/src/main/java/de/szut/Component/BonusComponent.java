@@ -1,4 +1,4 @@
-package de.szut.component;
+package de.szut.Component;
 
 import de.szut.Model.Employee;
 
