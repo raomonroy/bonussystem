@@ -35,4 +35,14 @@ public class SeniorityBonusDecoratorTest {
         assertThat(seniorityBonusDecorator.calculateBonus(employee)).isEqualTo(800.0);
     }
 
+    @Test
+    void handleExactInterval() {
+        Employee employee = new Employee("Carlo", 5, 70, 0, 0, false);
+        when(bonusComponent.calculateBonus(employee)).thenReturn(500.0);
+
+        BonusComponentInterface seniorityBonusDecorator = new SeniorityBonusDecorator(bonusComponent);
+
+        assertThat(seniorityBonusDecorator.calculateBonus(employee)).isEqualTo(650.0);
+    }
+
 }
