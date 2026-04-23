@@ -3,8 +3,6 @@ package de.szut.DecoratorTest;
 import de.szut.Decorator.SeniorityBonusDecorator;
 import de.szut.Interface.BonusComponentInterface;
 import de.szut.Model.Employee;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
