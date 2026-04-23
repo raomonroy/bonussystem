@@ -22,4 +22,15 @@ public class PerformanceMultiplierDecoratorTest {
 
         assertThat(performanceMultiplierDecorator.calculateBonus(employee)).isEqualTo(1500.0);
     }
+
+    @Test
+    void multiplyBy1_25ForScoreAtLeast75() {
+        Employee employee = new Employee("Leonidas", 3, 75, 0, 5, false);
+        when(bonusComponent.calculateBonus(employee)).thenReturn(1000.0);
+
+        BonusComponentInterface performanceMultiplierDecorator = new PerformanceMultiplierDecorator(bonusComponent);
+
+        assertThat(performanceMultiplierDecorator.calculateBonus(employee)).isEqualTo(1250.0);
+    }
+
 }
