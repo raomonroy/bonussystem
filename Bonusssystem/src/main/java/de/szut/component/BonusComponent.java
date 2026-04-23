@@ -1,0 +1,7 @@
+package de.szut.component;
+
+import de.szut.Model.Employee;
+
+public interface BonusComponent {
+    double calculateBonus(Employee employee);
+}
