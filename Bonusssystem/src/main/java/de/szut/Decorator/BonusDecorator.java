@@ -1,6 +1,7 @@
 package de.szut.Decorator;
 
 import de.szut.Interface.BonusComponentInterface;
+import de.szut.Model.Employee;
 
 public class BonusDecorator implements BonusComponentInterface {
 
@@ -11,7 +12,7 @@ public class BonusDecorator implements BonusComponentInterface {
     }
 
     @Override
-    public double calculateBonus() {
-        return bonusComponent.calculateBonus();
+    public double calculateBonus(Employee employee) {
+        return bonusComponent.calculateBonus(employee);
     }
 }

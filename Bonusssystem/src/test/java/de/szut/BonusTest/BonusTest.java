@@ -1,7 +1,7 @@
 package de.szut.BonusTest;
 
 import de.szut.Bonus.BasePerformanceBonus;
-import de.szut.Component.BonusComponent;
+import de.szut.Interface.BonusComponentInterface;
 import de.szut.Model.Employee;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ public class BonusTest {
 
     @Test
     void returnBaseBonusOf500(){
-        BonusComponent baseComponent = new BasePerformanceBonus();
+        BonusComponentInterface baseComponent = new BasePerformanceBonus();
         assertThat(baseComponent.calculateBonus(employee)).isEqualTo(500.0);
     }
 }

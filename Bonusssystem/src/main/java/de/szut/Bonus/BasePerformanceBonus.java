@@ -1,9 +1,9 @@
 package de.szut.Bonus;
 
-import de.szut.Component.BonusComponent;
+import de.szut.Interface.BonusComponentInterface;
 import de.szut.Model.Employee;
 
-public class BasePerformanceBonus implements BonusComponent {
+public class BasePerformanceBonus implements BonusComponentInterface {
     private static final double BASE_AMOUNT = 500.0;
 
     @Override
