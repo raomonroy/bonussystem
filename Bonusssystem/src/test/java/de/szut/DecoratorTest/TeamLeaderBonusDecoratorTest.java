@@ -1,6 +1,7 @@
 package de.szut.DecoratorTest;
 
 import de.szut.Decorator.ProjectCompletionBonusDecorator;
+import de.szut.Decorator.TeamLeaderBonusDecorator;
 import de.szut.Interface.BonusComponentInterface;
 import de.szut.Model.Employee;
 import org.junit.jupiter.api.Test;
@@ -15,12 +16,12 @@ public class TeamLeaderBonusDecoratorTest {
 
     @Test
     void add500ForTeamLeader() {
-        Employee employee = new Employee("Elke", 3, 70, 0, 5, false);
+        Employee employee = new Employee("Elke", 3, 70, 0, 5, true);
         when(bonusComponent.calculateBonus(employee)).thenReturn(500.0);
 
-        BonusComponentInterface projectCompletionBonusDecorator = new ProjectCompletionBonusDecorator(bonusComponent);
+        BonusComponentInterface teamLeaderBonusDecorator = new TeamLeaderBonusDecorator(bonusComponent);
 
-        assertThat(projectCompletionBonusDecorator.calculateBonus(employee)).isEqualTo(1000.0);
+        assertThat(teamLeaderBonusDecorator.calculateBonus(employee)).isEqualTo(1000.0);
     }
 
     @Test
@@ -28,9 +29,9 @@ public class TeamLeaderBonusDecoratorTest {
         Employee employee = new Employee("Ursula", 3, 70, 0, 5, false);
         when(bonusComponent.calculateBonus(employee)).thenReturn(500.0);
 
-        BonusComponentInterface projectCompletionBonusDecorator = new ProjectCompletionBonusDecorator(bonusComponent);
+        BonusComponentInterface teamLeaderBonusDecorator = new TeamLeaderBonusDecorator(bonusComponent);
 
-        assertThat(projectCompletionBonusDecorator.calculateBonus(employee)).isEqualTo(500.0);
+        assertThat(teamLeaderBonusDecorator.calculateBonus(employee)).isEqualTo(500.0);
     }
 
 }
