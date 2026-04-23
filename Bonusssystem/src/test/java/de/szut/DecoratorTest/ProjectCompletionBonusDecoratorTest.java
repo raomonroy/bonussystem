@@ -23,4 +23,13 @@ public class ProjectCompletionBonusDecoratorTest {
         assertThat(projectCompletionBonusDecorator.calculateBonus(employee)).isEqualTo(700.0);
     }
 
+    @Test
+    void addNoBonusWithZeroProjects() {
+        Employee employee = new Employee("Peter", 3, 70, 0, 5, false);
+        when(bonusComponent.calculateBonus(employee)).thenReturn(500.0);
+
+        BonusComponentInterface projectCompletionBonusDecorator = new ProjectCompletionBonusDecorator(bonusComponent);
+
+        assertThat(projectCompletionBonusDecorator.calculateBonus(employee)).isEqualTo(500.0);
+    }
 }
