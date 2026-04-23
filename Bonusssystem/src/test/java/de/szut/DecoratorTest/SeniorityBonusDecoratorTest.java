@@ -25,4 +25,14 @@ public class SeniorityBonusDecoratorTest {
         assertThat(seniorityBonusDecorator.calculateBonus(employee)).isEqualTo(500.0);
     }
 
+    @Test
+    void add150PerEvery5Years() {
+        Employee employee = new Employee("Tonny", 10, 70, 0, 0, false);
+        when(bonusComponent.calculateBonus(employee)).thenReturn(500.0);
+
+        BonusComponentInterface seniorityBonusDecorator = new SeniorityBonusDecorator(bonusComponent);
+
+        assertThat(seniorityBonusDecorator.calculateBonus(employee)).isEqualTo(800.0);
+    }
+
 }
