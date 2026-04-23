@@ -33,4 +33,14 @@ public class PerformanceMultiplierDecoratorTest {
         assertThat(performanceMultiplierDecorator.calculateBonus(employee)).isEqualTo(1250.0);
     }
 
+    @Test
+    void multiplyBy1_1ForScoreAtLeast60() {
+        Employee employee = new Employee("Leonidas", 3, 60, 0, 5, false);
+        when(bonusComponent.calculateBonus(employee)).thenReturn(1000.0);
+
+        BonusComponentInterface performanceMultiplierDecorator = new PerformanceMultiplierDecorator(bonusComponent);
+
+        assertThat(performanceMultiplierDecorator.calculateBonus(employee)).isEqualTo(1100.0);
+    }
+
 }
