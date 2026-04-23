@@ -34,4 +34,14 @@ public class AbsencePenaltyDecoratorTest {
         assertThat(absencePenaltyDecorator.calculateBonus(employee)).isEqualTo(700.0);
     }
 
+    @Test
+    void deductNothingFor15OrFewerAbsenceDays() {
+        Employee employee = new Employee("Rebecca", 3, 70, 0, 15, false);
+        when(bonusComponent.calculateBonus(employee)).thenReturn(1000.0);
+
+        BonusComponentInterface absencePenaltyDecorator = new AbsencePenaltyDecorator(bonusComponent);
+
+        assertThat(absencePenaltyDecorator.calculateBonus(employee)).isEqualTo(1000.0);
+    }
+
 }
