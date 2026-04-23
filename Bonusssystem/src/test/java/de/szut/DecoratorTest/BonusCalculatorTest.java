@@ -43,4 +43,14 @@ public class BonusCalculatorTest {
         assertThat(result).isEqualTo(10000.0);
         verify(bonusService, times(1)).applyCompanyRestrictions(anyDouble());
     }
+
+    @Test
+    void shouldEnsureServiceIsCalledExactlyOnce() {
+        Employee employee = new Employee("Tanja", 3, 70, 2, 8, false);
+        when(bonusService.applyCompanyRestrictions(anyDouble())).thenReturn(800.0);
+
+        bonusCalculator.calculateTotalBonus(employee);
+
+        verify(bonusService, times(1)).applyCompanyRestrictions(anyDouble());
+    }
 }
