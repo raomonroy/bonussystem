@@ -32,4 +32,15 @@ public class BonusCalculatorTest {
         assertThat(result).isEqualTo(650.0);
         verify(bonusService).applyCompanyRestrictions(650.0);
     }
+
+    @Test
+    void passRawBonusToServiceAndReturnCappedValue() {
+        Employee highPerformer = new Employee("Torsten", 20, 95, 10, 0, true);
+        when(bonusService.applyCompanyRestrictions(anyDouble())).thenReturn(10000.0);
+
+        double result = bonusCalculator.calculateTotalBonus(highPerformer);
+
+        assertThat(result).isEqualTo(10000.0);
+        verify(bonusService, times(1)).applyCompanyRestrictions(anyDouble());
+    }
 }
