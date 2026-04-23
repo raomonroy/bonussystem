@@ -23,4 +23,14 @@ public class TeamLeaderBonusDecoratorTest {
         assertThat(projectCompletionBonusDecorator.calculateBonus(employee)).isEqualTo(1000.0);
     }
 
+    @Test
+    void addNoBonusForNonTeamLeader() {
+        Employee employee = new Employee("Ursula", 3, 70, 0, 5, false);
+        when(bonusComponent.calculateBonus(employee)).thenReturn(500.0);
+
+        BonusComponentInterface projectCompletionBonusDecorator = new ProjectCompletionBonusDecorator(bonusComponent);
+
+        assertThat(projectCompletionBonusDecorator.calculateBonus(employee)).isEqualTo(500.0);
+    }
+
 }
