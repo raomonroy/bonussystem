@@ -33,4 +33,15 @@ public class LowAbsenceBonusDecoratorTest {
 
         assertThat(lowAbsenceBonusDecorator.calculateBonus(employee)).isEqualTo(650.0);
     }
+
+    @Test
+    void addNoBonusAbove7AbsenceDays() {
+        Employee employee = new Employee("Lisa", 3, 70, 0, 10, false);
+        when(bonusComponent.calculateBonus(employee)).thenReturn(500.0);
+
+        BonusComponentInterface lowAbsenceBonusDecorator = new LowAbsenceBonusDecorator(bonusComponent);
+
+        assertThat(lowAbsenceBonusDecorator.calculateBonus(employee)).isEqualTo(500.0);
+    }
+
 }
